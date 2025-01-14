@@ -1,0 +1,46 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    margin: auto;
+    width: 50%;
+    text-align: center;
+}
+
+div{
+    padding: 2%;
+}
+
+button{
+    background-color: greenyellow;
+    padding: 2px;
+}
+
+label{
+    font-weight: bold;
+    color: red;
+}
+
+p{
+    color: crimson;
+    text-align: center;
+    padding-top: 5%;
+    font-weight: bold;
+}
+
+table{
+    background-color: lightblue;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+}
+
+tr{
+    text-align: center;
+}
+
+caption{
+    background-color: grey;
+}
