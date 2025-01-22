@@ -15,6 +15,10 @@ let ipsub;
 let numsub;
 let bsub;
 
+let iphost;
+let numhost;
+let bhost;
+
 window.onload = function(){
     b=document.getElementById('b');
     rb=document.getElementById('rb');
@@ -36,6 +40,11 @@ window.onload = function(){
     numsub=document.getElementById('numsub');
     bsub=document.getElementById('bsub');
     bsub.addEventListener('click', function(){subnetting(ipsub.value, numsub.value)})
+
+    iphost=document.getElementById('iphost');
+    numhost=document.getElementById('numhost');
+    bhost=document.getElementById('bhost');
+    bhost.addEventListener('click', function(){subnettingHost(iphost.value, numhost.value)})
 };
 
 function decimalABinario(n){
@@ -137,6 +146,21 @@ function subnetting(ip, redes){
         escribirRedes(ipRed, ipBroad);
     }
     document.getElementById('clase').innerHTML=clase;
+}
+
+function subnettingHost(ip, host){
+    let pow = 0;
+    let n = 0;
+    let r = "1";
+    while(host>n){
+        pow++;
+        n+=2**pow;
+    }
+    let longitud = 8-pow;
+    for(let i = 1; i < longitud; i++){
+        r+="0";
+    }
+    subnetting(ip, parseInt(binarioADecimal(r)));
 }
 
 function escribirRedes(red, broad){
