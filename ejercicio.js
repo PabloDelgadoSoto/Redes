@@ -2,6 +2,10 @@ let b;
 let rb;
 let bb;
 
+let bip;
+let rbip;
+let bbip;
+
 let d;
 let rd;
 let bd;
@@ -19,11 +23,22 @@ let iphost;
 let numhost;
 let bhost;
 
+let tabla;
+let borrar;
 window.onload = function(){
+    tabla=document.getElementById("tabla");
+    borrar=document.getElementById("borrar");
+    crearTabla();
+    borrar.addEventListener('click', function(){document.getElementById("rsub").remove();crearTabla()})
     b=document.getElementById('b');
     rb=document.getElementById('rb');
     bb=document.getElementById('bb');
     bb.addEventListener('click', function(){rb.innerHTML=binarioADecimal(b.value)})
+
+    bip=document.getElementById('bip');
+    rbip=document.getElementById('rbip');
+    bbip=document.getElementById('bbip');
+    bbip.addEventListener('click', function(){rbip.innerHTML=ipABinario(bip.value)})
 
     d=document.getElementById('d');
     rd=document.getElementById('rd');
@@ -45,7 +60,22 @@ window.onload = function(){
     numhost=document.getElementById('numhost');
     bhost=document.getElementById('bhost');
     bhost.addEventListener('click', function(){subnettingHost(iphost.value, numhost.value)})
+
+    console.log(disponibilidad(365*24,12+27));
+    console.log(disponibilidad(365*24,24+7+5));
+    console.log(disponibilidad(365/2*24,24));
+    console.log(disponibilidad(365/2*24,7+5));
+    console.log(disponibilidad(365*24*60,60));
 };
+
+function ipABinario(ip){
+    let d = ip.split(".");
+    let r = "";
+    d.forEach(e => {
+        r+=decimalABinario(parseInt(e))+".";
+    });
+    return r.substring(0,r.length-1);
+}
 
 function decimalABinario(n){
     let r = "";
@@ -173,6 +203,24 @@ function escribirRedes(red, broad){
     td2.innerHTML=broad;
     tr.appendChild(td2);
     tabla.appendChild(tr);
+}
+
+function crearTabla(){
+    let t = document.createElement("table");
+    t.setAttribute('id', "rsub");
+    let c = document.createElement("caption");
+    c.setAttribute('id', 'clase');
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    td1.innerHTML="Direccion de red";
+    let td2 = document.createElement("td");
+    td2.innerHTML="Direccion de broadcast";
+
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    t.appendChild(c);
+    t.appendChild(tr);
+    tabla.appendChild(t);
 }
 
 
