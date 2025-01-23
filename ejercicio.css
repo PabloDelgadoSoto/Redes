@@ -9,10 +9,6 @@ body{
     text-align: center;
 }
 
-div{
-    padding: 2%;
-}
-
 button{
     background-color: greenyellow;
     padding: 2px;
@@ -26,7 +22,6 @@ label{
 p{
     color: crimson;
     text-align: center;
-    padding-top: 5%;
     font-weight: bold;
 }
 
@@ -43,4 +38,8 @@ tr{
 
 caption{
     background-color: grey;
+}
+
+#borrar{
+    background-color: red;
 }
